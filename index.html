@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Météo</title>
+
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/MyFramework.css">
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="preloader">
+      <div id="cercle"></div>
+  </div>
+  <!-- NAV BAR  -->
+  <nav>
+    <div class="nav_l">
+      <i class="fa-solid fa-bars ic"></i>
+      <i class="fa-regular fa-bell ic"></i>
+      <div class="location">
+        <i class="fa-solid fa-location-dot"></i>
+        <p><span id="villeSelected"></span></p>
+      </div>
+    </div>
+
+    <form action="" method="" id="form_f">
+      <button type="submit" onclick="updateVille()">
+        <i class="fa-solid fa-magnifying-glass ic"></i>
+      </button>
+      <input type="text" placeholder=" Search city..." onfocus="myFunction()" onfocusout="myFunction2()" id="villeS" name="villeS">
+    </form>
+
+    <div class="nav_r">
+      <div class="mode">
+        <i class="fa-regular fa-sun ic"></i>
+        <i class="fa-solid fa-moon m-active ic"></i>
+      </div>
+      <i class="fa-solid fa-user user ic"></i>
+    </div>
+  </nav>
+  <!-- END NAV BAR  -->
+
+  <!-- MAIN  -->
+  <main>
+    
+    <div class="main_1">
+      <div class="week">
+        <div class="aw">
+          <div class="choice_w">
+            <button class="active">Next 7 days</button>
+          </div>
+          <div class="type_w">
+            <button>Air quality</button>
+            <button class="active">Forcast</button>
+          </div>
+        </div>
+        <div class="ww" id="ww">
+          <div class="b-today">
+            <div class="time">
+              <p class="d" id="t_day">Today</p>
+              <p class="t" id="l_u"></p>
+            </div>
+            <div class="st">
+              <div class="st_1">
+                <div class="tmp" id="tempC"></div>
+                <ul>
+                  <li>Real Feel: <span>18°</span></li>
+                  <li>Wind: N-E, <span>5-8 km/h</span></li>
+                  <li>Pressure: <span>1000MB</span></li>
+                  <li>Humidity: <span>51%</span></li>
+                </ul>
+              </div>
+              <div class="st_2">
+                <span class="img_st" id="img_st">
+
+                </span>
+                <ul>
+                  <li>Sunrise: <span>6:02 AM</span> </li>
+                  <li>Sunsel: <span>9:18 PM</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="map_info">
+          <p>Global map</p>
+          <div class="view">
+            <p>View mode</p>
+            <span>
+              <i class="fa-solid fa-star"></i>
+            </span>
+          </div>
+        </div>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205595.42511217424!2d3.959498811807066!3d36.37461912601578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128c476321f2cd0b%3A0xee1168fbd4624011!2sBechloul!5e0!3m2!1sen!2sdz!4v1675848937513!5m2!1sen!2sdz"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="graphs">
+        <p class="title">Rain chance</p>
+        <div class="graph1">
+          <div class="axe_y">
+            <p>Rainny</p>
+            <p>Sunny</p>
+            <p>Heavy</p>
+          </div>
+          <div class="char">
+            <div class="prog">
+              <div class="pp" ></div>
+            </div>
+            <p class="ti">06AM</p>
+          </div>
+          <div class="char">
+            <div class="prog">
+              <div class="pp" ></div>
+            </div>
+            <p class="ti">09AM</p>
+          </div>
+          <div class="char">
+            <div class="prog">
+              <div class="pp" ></div>
+            </div>
+            <p class="ti">12PM</p>
+          </div>
+          <div class="char">
+            <div class="prog">
+              <div class="pp" ></div>
+            </div>
+            <p class="ti">15PM</p>
+          </div>
+          <div class="char">
+            <div class="prog">
+              <div class="pp" ></div>
+            </div>
+            <p class="ti">17PM</p>
+          </div>
+        </div>
+        <div class="citys">
+          <div class="city">
+            <div class="c1">
+              <p class="c1_pays" id="country_b_1"></p>
+              <p class="c1_city" id="city_b_1"></p>
+              <p class="c1_sit" id="sit_b_1"></p>
+            </div>
+            <div class="c2">
+              <div class="c2_img" id="c2Img1">
+
+              </div>
+              <div class="c2_temp" id="c2tmp1"></div>
+            </div>
+          </div>
+          <div class="city">
+            <div class="c1">
+              <p class="c1_pays" id="country_b_2"></p>
+              <p class="c1_city" id="city_b_2"></p>
+              <p class="c1_sit" id="sit_b_2"></p>
+            </div>
+            <div class="c2">
+              <div class="c2_img" id="c2Img2">
+
+              </div>
+              <div class="c2_temp" id="c2tmp2"></div>
+            </div>
+          </div>
+          <div class="city">
+            <div class="c1">
+              <p class="c1_pays" id="country_b_3"></p>
+              <p class="c1_city" id="city_b_3"></p>
+              <p class="c1_sit" id="sit_b_3"></p>
+            </div>
+            <div class="c2">
+              <div class="c2_img" id="c2Img3">
+
+              </div>
+              <div class="c2_temp" id="c2tmp3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- END MAIN  -->
+
+  <script src="main.js"></script>
+</body>
+
+</html>
